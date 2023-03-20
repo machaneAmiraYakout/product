@@ -1,10 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import '../models/productdetailmodel.dart';
-import '../models/productlistmodel.dart';
+import '../models/vegetablesdetailmodel.dart';
+import '../models/vegetableslistmodel.dart';
 import '../viewmodel/fruitDetailviewmodel.dart';
-import '../viewmodel/productdetailviewmodel.dart';
+import '../viewmodel/vegetablesdetailviewmodel.dart';
 class FruitDetailScreen extends StatelessWidget {
 
   String NameF;
@@ -112,8 +112,7 @@ class FruitDetailScreen extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(20),
                                     color:  Color(0xff558949).withOpacity(0.3),
                                   ),
-                                  child:
-                                  Center(child:
+                                  child: Center(child:
                                   Padding(
                                     padding: EdgeInsets.symmetric(horizontal: 20.0),
                                     child: Text(model.fruitsDetail[0].description  ,style: const TextStyle(

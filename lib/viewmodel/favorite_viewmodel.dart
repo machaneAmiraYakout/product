@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import '../models/productlistmodel.dart';
+import '../models/vegetableslistmodel.dart';
 class FavoriteViewModel extends BaseViewModel implements ChangeNotifier{
   List<ListProductModel> _favorites = [ ];
 List<ListProductModel> get favorites => _favorites;

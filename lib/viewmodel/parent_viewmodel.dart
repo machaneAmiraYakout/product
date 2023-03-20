@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:product_app/viewmodel/productlistviewmodel.dart';
+import 'package:product_app/viewmodel/vegetableslistviewmodel.dart';
 import 'package:stacked/stacked.dart';
 
 import 'favorite_viewmodel.dart';

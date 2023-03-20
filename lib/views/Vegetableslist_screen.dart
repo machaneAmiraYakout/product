@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:product_app/views/ProductDetailScreen.dart';
+import 'package:product_app/views/VegetablesDetailScreen.dart';
 import 'package:product_app/views/Favorite.dart';
 import 'package:badges/badges.dart';
+import 'package:product_app/views/search.dart';
 import 'package:stacked/stacked.dart';
 import '../viewmodel/favorite_viewmodel.dart';
 import '../viewmodel/parent_viewmodel.dart';
@@ -9,9 +10,9 @@ import 'fruitlist_screen.dart';
 class ProductListScreen extends StatefulWidget {
   const ProductListScreen({Key? key}) : super(key: key);
   @override
-  State<ProductListScreen> createState() => _ProductListScreenState();
-}
+  State<ProductListScreen> createState() => _ProductListScreenState();}
 class _ProductListScreenState extends State<ProductListScreen> {
+  TextEditingController Controller= TextEditingController();
   @override
   Widget build(BuildContext context) {
     return   ViewModelBuilder<ParentViewModel>.reactive(
@@ -38,8 +39,6 @@ class _ProductListScreenState extends State<ProductListScreen> {
                 child: IconButton(
                   onPressed: () {
                   List.generate(model.childViewModel1.products.length, (index) {
-                  final favList = model.childViewModel1.products[index];
-
                   });
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>Favorite()));
                   },
@@ -88,10 +87,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                       Container(
                         margin: const EdgeInsets.symmetric(
                             horizontal: 20, vertical: 15),
-                        width: MediaQuery
-                            .of(context)
-                            .size
-                            .width,
+                        width: MediaQuery.of(context).size.width,
                         height: 50,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
@@ -107,7 +103,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                             prefixIcon: Icon(Icons.search,
                               color: Color(0xff0d2a00),),
                           ),
-                          onTap: (){},
+                          onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Search(model.childViewModel1.searchProduct)));},
                         ),
                       ),
                     ],
@@ -125,9 +121,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                             unselectedLabelColor: Color(0xff558949),
                             tabs: [
                               Tab(text: 'Vegetables'),
-                              Tab(text: 'Fruits'),
-
-                            ],
+                              Tab(text: 'Fruits'),],
                           ),
                           Container(
                               height: 400, //height of TabBarView
@@ -150,10 +144,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                                           onTap: () {
                                             Navigator.push(context, MaterialPageRoute(
                                                 builder: (context)=>
-                                                    ProductDetailScreen(
-                                                        Name:productd.name ,
-                                                        Price:productd.price,
-                                                        Image1:productd.image,
+                                                    ProductDetailScreen(Name:productd.name , Price:productd.price, Image1:productd.image,
                                                      )));
                                           },
                                           child: Image.asset(productd.image,
@@ -165,45 +156,36 @@ class _ProductListScreenState extends State<ProductListScreen> {
                                           padding: const EdgeInsets.only(
                                             bottom: 8,),
                                           child: Align(
-                                              alignment: Alignment
-                                                  .centerLeft,
+                                              alignment: Alignment.centerLeft,
                                               child: Column(
-                                                crossAxisAlignment: CrossAxisAlignment
-                                                    .start,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
                                                 children: [
                                                   Text(productd.name,
                                                     style: const TextStyle(
                                                       fontSize: 20.0,
-                                                      fontWeight: FontWeight
-                                                          .w600,
+                                                      fontWeight: FontWeight.w600,
                                                       color: Color(0xff0d2a00)
                                                   ),),
                                                   SizedBox(height: 5,),
-                                                  const Text(
-                                                    "Fresh Organic",
+                                                  const Text("Fresh Organic",
                                                     style: TextStyle(
                                                       fontSize: 20.0,
-                                                      fontWeight: FontWeight
-                                                          .w600,
+                                                      fontWeight: FontWeight.w600,
                                                       color: Color(0xff558949),
                                                     ),),
-
                                                 ],
                                               )
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets
-                                              .symmetric(vertical: 5),
+                                          padding: const EdgeInsets.symmetric(vertical: 5),
                                           child: Row(
-                                            mainAxisAlignment: MainAxisAlignment
-                                                .spaceBetween,
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text('${productd.price}',
                                                 style: const TextStyle(
                                                   fontSize: 20.0,
-                                                  fontWeight: FontWeight
-                                                      .w600,
+                                                  fontWeight: FontWeight.w600,
                                                   color: Color(0xff0d2a00)
                                               ),),
 
@@ -215,14 +197,12 @@ class _ProductListScreenState extends State<ProductListScreen> {
                                                 onTap: () {
                                                   model.toggleFavorite(productd);
                                                   print(model.isFavorite(productd));
-
                                                 },
                                                 child: Container(
                                                   padding: const EdgeInsets.all(5),
                                                   decoration: BoxDecoration(
                                                       color:  Colors.white,
-                                                      borderRadius: BorderRadius
-                                                          .circular(50)
+                                                      borderRadius: BorderRadius.circular(50)
                                                   ),
                                                   child: Icon(
                                                       model.isFavorite(productd) ?
@@ -232,8 +212,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                                               ),
                                               );
                                              }
-                                             ),
-                                  ],
+                                             ),],
                                           ),
                                         ),
                                       ],
@@ -241,7 +220,6 @@ class _ProductListScreenState extends State<ProductListScreen> {
                                   );
                                 }),
                               ),
-                                //FruitsList
                                 FruitListScreen(),
                               ])
                           )
@@ -251,10 +229,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
             ),
           ),
         ),
-
       );
     }
-    );
-
-  }
+    );}
 }

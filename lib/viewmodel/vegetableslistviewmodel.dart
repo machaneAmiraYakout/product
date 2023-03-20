@@ -3,7 +3,7 @@ import 'dart:ui';
 
 import 'package:stacked/stacked.dart';
 
-import '../models/productlistmodel.dart';
+import '../models/vegetableslistmodel.dart';
 
 class ProductListViewModel extends BaseViewModel {
 
@@ -21,6 +21,15 @@ class ProductListViewModel extends BaseViewModel {
     // Notify listeners that the data has changed
     notifyListeners();
   }
+   List<ListProductModel> searchProduct = [];
+   void search(String value) {
+
+     searchProduct = _products.where((product) {
+       return product.name.toLowerCase().contains(value.toLowerCase());
+     }).toList();
+     print("list search ${searchProduct.toString()}");
+     notifyListeners();
+   }
 
 
 }

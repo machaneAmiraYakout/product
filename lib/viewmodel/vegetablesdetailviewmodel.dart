@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:product_app/models/productdetailmodel.dart';
+import 'package:product_app/models/vegetablesdetailmodel.dart';
 import 'package:stacked/stacked.dart';
 
 class ProductDetailViewModel extends BaseViewModel {

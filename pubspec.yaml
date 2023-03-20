@@ -38,6 +38,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   stacked: ^3.2.0
   badges: ^2.0.2
+  conditional_builder_null_safety: ^0.0.6
+
 
 
 dev_dependencies:

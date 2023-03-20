@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:product_app/views/productlist_screen.dart';
+import 'package:product_app/views/Vegetableslist_screen.dart';
 import 'package:product_app/views/splashScreen.dart';
 
 void main() {
